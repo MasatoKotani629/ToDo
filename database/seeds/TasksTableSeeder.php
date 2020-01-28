@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class TasksTableSeeder extends Seeder
 {
@@ -12,9 +13,13 @@ class TasksTableSeeder extends Seeder
      */
     public function run()
     {
+
+        $folder = DB::table('folders')->first();
+
         foreach (range(1, 3) as $num) {
             DB::table('tasks')->insert([
-                'folder_id' => 1,
+                'folder_id' => $folder->id,
+                'user_id' => $folder->user_id,
                 'title' => "サンプルタスク {$num}",
                 'status' => $num,
                 'due_date' => Carbon::now()->addDay($num),

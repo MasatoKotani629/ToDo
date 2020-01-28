@@ -14,9 +14,12 @@ class CreateFoldersTable extends Migration
     public function up()
     {
         Schema::create('folders', function (Blueprint $table) {
+            $table->integer('user_id')->unsigned();
             $table  -> increments('id');
             $table->string('title', 20);
             $table->timestamps();
+            //外部キーを設定する。
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
