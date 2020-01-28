@@ -2,24 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Folder;
 use App\Task;
-use App\http\Requests\CreateTask;
+use App\Folder;
+use Illuminate\Http\Request;
 use App\http\Requests\EditTask;
+use App\http\Requests\CreateTask;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
     public function index(int $id)
     {
-        $folders = Folder::all();
+        $folders = Auth::user()->folders()->get();
 
         $current_folder = Folder::find($id);
+
+        //備考レスポンスステータスコード
+        if (is_null($current_folder)) {
+            abort(404);
+        }
 
         //リレーションを使用
         $tasks = $current_folder->tasks()->get();
 
         //リレーションを不使用
+        //$current_folder.idと一致するtaskテーブルカラムのレコードを取得する。
         //$tasks = Task::where('folder_id', $current_foler->id)->get();
 
         return view('tasks/index',[
@@ -44,6 +51,7 @@ class TaskController extends Controller
         $task = new Task();
         $task->title = $request->title;
         $task->due_date = $request->due_date;
+        $task->user_id = Auth::user()->id;
 
         $current_folder->tasks()->save($task);
 

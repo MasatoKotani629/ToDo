@@ -1,5 +1,8 @@
 <?php
-
+//備考RedirectIfAuthenticated ミドルウェアは会員登録コントローラーやログインコントローラーのコンストラクタで適用されている。
+//RegisterController.php
+//LoginController.php
+//Kernel.php
 namespace App\Http\Middleware;
 
 use App\Providers\RouteServiceProvider;
@@ -19,7 +22,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect(RouteServiceProvider::HOME);
+            return redirect('/');
         }
 
         return $next($request);

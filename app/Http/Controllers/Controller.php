@@ -12,15 +12,15 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function index(int $id)
-    {
-        $folders = Folder::all();
+    // public function index(int $id)
+    // {
+    //     $folders = Folder::all();
 
-        return view('tasks/index', [
-            'folders' => $folders,
-            'current_folder_id' => $id,
-        ]);
-    }
+    //     return view('tasks/index', [
+    //         'folders' => $folders,
+    //         'current_folder_id' => $id,
+    //     ]);
+    // }
 
 
 }
