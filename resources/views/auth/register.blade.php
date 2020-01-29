@@ -25,6 +25,18 @@
                 <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" />
               </div>
               <div class="form-group">
+                <input id="gender-m" type="radio" name="gender" value="male">
+                <label for="gender-m">男性</label>
+                <input id="gender-f" type="radio" name="gender" value="female">
+                <label for="gender-f">女性</label>
+              </div>
+              <div class="form-group">
+                <label for="password">パスワード</label>
+                <div class="">
+                    <input id="age" type="number" min="1" class="form-control{{ $errors->has('age') ? ' is-invalid' : '' }}" name="age" value="{{ old('age') }}" required>
+                </div>
+              </div>
+              <div class="form-group">
                 <label for="password">パスワード</label>
                 <input type="password" class="form-control" id="password" name="password">
               </div>

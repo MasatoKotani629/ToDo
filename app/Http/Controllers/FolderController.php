@@ -23,11 +23,19 @@ class FolderController extends Controller
 
         Auth::user()->folders()->save($folder);
 
+        // Log::debug("ログ出力テスト4");
+        // Log::debug('$folder="'.$folder.'"');
         //tasks.indexに遷移する
         return redirect()->route('tasks.index',[
-            'id' => $folder->id,
+            'folder' => $folder->id,
         ]);
 
     }
 
+
+
 }
+
+
+
+
