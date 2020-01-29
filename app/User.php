@@ -15,8 +15,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+    //$fillableは、DBに入力したい値をリストするホワイトリストです。
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'gender', 'age', 'email', 'password',
     ];
 
     /**
