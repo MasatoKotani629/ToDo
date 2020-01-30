@@ -14,14 +14,13 @@ class HomeController extends Controller
 
         $folder = $user->folders()->first();
 
-        return view('home');
 
         if (is_null($folder)) {
             return view('home');
         }
 
         return redirect()->route('tasks.index', [
-            'id' => $folder->id,
+            'folder' => $folder->id,
         ]);
     }
 }

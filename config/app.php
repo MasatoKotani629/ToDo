@@ -79,7 +79,8 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-
+    // 　備考（バリデーション） 日本語化
+    //   見つからなければ fallback_locale である en のディレクトリにあるファイルを使います。
     'locale' => 'jp',
 
     /*

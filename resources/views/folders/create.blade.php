@@ -7,6 +7,7 @@
         <nav class="panel panel-default">
           <div class="panel-heading">フォルダを追加する</div>
           <div class="panel-body">
+            {{-- 　備考（バリデーション） --}}
               @if($errors->any())
                   <div class="alert alert-dange">
                       <ul>
@@ -20,7 +21,7 @@
               @csrf
               <div class="form-group">
                 <label for="title">フォルダ名</label>
-                {{-- セッションに保存されたoldを取得する --}}
+                {{-- 備考（バリデーション）セッションに保存されたoldを取得する --}}
                 <input type="text" class="form-control" name="title" id="title" value={{old('title')}}/>
               </div>
               <div class="text-right">

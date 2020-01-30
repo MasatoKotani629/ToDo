@@ -15,7 +15,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    //$fillableは、DBに入力したい値をリストするホワイトリストです。
+    //備考（ユーザーカラム追加） $fillableは、DBに入力したい値をリストするホワイトリスト。
     protected $fillable = [
         'name', 'gender', 'age', 'email', 'password',
     ];
@@ -44,4 +44,5 @@ class User extends Authenticatable
         return $this->hasMany('App\Folder');
     }
 
+    
 }

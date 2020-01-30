@@ -17,8 +17,8 @@
             <form action="{{ route('login') }}" method="POST">
               @csrf
               <div class="form-group">
-                <label for="email">メールアドレス</label>
-                <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}" />
+                <label for="name">名前</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" />
               </div>
               <div class="form-group">
                 <label for="password">パスワード</label>
