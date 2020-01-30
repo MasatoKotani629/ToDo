@@ -49,10 +49,20 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        // make メソッドの第一引数は検証するデータ、第二引数がルール定義、第三引数がメッセージ定義、第四引数が項目名定義です
+        // メッセージは validation.php で定義するのでからの配列を渡し、第四引数で日本語の項目名を定義しています。
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'name' => ['required', 'string', 'max:255'],
+            'gender'   => 'required',
+            'age'      => 'required|integer',
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ] , [], [
+            'email' => 'メールアドレス',
+            'name' => 'ユーザー名',
+            'gender' => 'ユーザー名',
+            'age' => '年齢',
+            'password' => 'パスワード',
         ]);
     }
 
@@ -62,12 +72,17 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+    // //備考（ユーザーカラム追加）
     protected function create(array $data)
     {
         return User::create([
             'name' => $data['name'],
+            'gender' => $data['gender'],
+            'age' => $data['age'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
     }
+
+
 }

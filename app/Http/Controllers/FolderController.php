@@ -14,7 +14,7 @@ class FolderController extends Controller
         return view('folders/create');
     }
 
-     // 引数にインポートしたRequestクラスを受け入れる
+     //備考（バリデーション）　引数にインポートしたRequestクラスを受け入れる
     public function create(CreateFolder $request)
     {
         $folder = new Folder();

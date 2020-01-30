@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+//　備考（バリデーション）
 class CreateFolder extends FormRequest
 {
     /**
@@ -24,11 +24,12 @@ class CreateFolder extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            //titleはinput要素のname属性に対応
             'title' => 'required|max:20',
         ];
     }
 
+    //name属性に対応するものを日本語化
     public function attributes()
     {
         return [

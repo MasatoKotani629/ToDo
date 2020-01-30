@@ -37,6 +37,7 @@ class CreateTask extends FormRequest
         ];
     }
 
+    //　備考（バリデーション）　クラス単位でエラーメッセージするために定義する。
     public function messages()
     {
         return [

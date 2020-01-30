@@ -31,9 +31,9 @@
                 <label for="gender-f">女性</label>
               </div>
               <div class="form-group">
-                <label for="password">パスワード</label>
+                <label for="password">年齢</label>
                 <div class="">
-                    <input id="age" type="number" min="1" class="form-control{{ $errors->has('age') ? ' is-invalid' : '' }}" name="age" value="{{ old('age') }}" required>
+                    <input id="age" type="number" min="1" class="form-control" name="age" value="{{ old('age') }}" >
                 </div>
               </div>
               <div class="form-group">
