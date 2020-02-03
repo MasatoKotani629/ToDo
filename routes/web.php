@@ -1,6 +1,9 @@
 <?php
 
 Route::group(['middleware' => 'auth'], function() {
+    Route::get('users/index', 'UserController@index')->name('users.index');
+    Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit');
+    Route::post('users/{user}/update', 'UserController@update')->name('users.update');
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('calender', 'CalenderController@index');
 
