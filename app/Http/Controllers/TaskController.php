@@ -35,6 +35,8 @@ class TaskController extends Controller
 
         $folders = Auth::user()->folders()->get();
 
+        //$tasks = $folder->tasks()->toSql();
+        //var_dump($tasks);
         $tasks = $folder->tasks()->get();
 
         /**
