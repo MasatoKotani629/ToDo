@@ -28,6 +28,12 @@ class TaskController extends Controller
 
     public function index(Folder $folder)
     {
+
+        Log::channel('custom1')->debug('custom1');
+        Log::channel('custom2')->debug('custom2');
+
+
+
         //ユーザーが所持していないフォルダを指定すれば403が表示される。
         // if (Auth::user()->id !== $folder->user_id) {
         //     abort(403);
@@ -67,10 +73,10 @@ class TaskController extends Controller
 
         // ]);
 
-        Log::debug("ログ出力テスト");
-        Log::debug('$folder="'.$folder.'"');
-        Log::debug('$folders="'.$folders.'"');
-        Log::debug('$tasks="'.$tasks.'"');
+        // Log::debug("ログ出力テスト");
+        // Log::debug('$folder="'.$folder.'"');
+        // Log::debug('$folders="'.$folders.'"');
+        // Log::debug('$tasks="'.$tasks.'"');
 
         return view('tasks/index')->with([
             'folders'=> $folders,
