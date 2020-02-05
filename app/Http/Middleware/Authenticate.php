@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
-//備考　ログインしているユーザーをログインできないようにする。
+//備考 ユーザーがログインしていない時にユーザーをログインページに遷移する。
 class Authenticate extends Middleware
 {
     /**

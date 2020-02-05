@@ -9,6 +9,7 @@ use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
+//備考　ログインしているユーザーをログインページに遷移できないようにする。
 class RedirectIfAuthenticated
 {
     /**

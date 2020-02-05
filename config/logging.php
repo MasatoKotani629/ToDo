@@ -35,9 +35,11 @@ return [
     */
 
     'channels' => [
+        //stackドライバーは、複数のチャンネルを一つのログチャンネルへまとめるために使用
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            //デフォルトではdailyチャネルを使うことを意味しています。
+            'channels' => ['single', 'custom1', 'custom2'],
             'ignore_exceptions' => false,
         ],
 
@@ -99,6 +101,24 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'custom1' => [
+            'driver' => 'custom', //使用するdriverを指定、独自のログを使用するため「custom」を指定する。
+            'via' => App\Logging\CreateCustom1Logger::class, //拡張用のクラスを指定
+            'path' => storage_path('logs/custom1.log'), //ログファイルの出力先
+            'level' => 'debug',// 指定したハンドラで出力するログレベル
+            'days' => 14,//出力したログファイルを残す数
+        ],
+
+        //ログファイルが二つ作成されるか確認用
+        'custom2' => [
+            'driver' => 'custom',
+            'via' => App\Logging\CreateCustom2Logger::class,
+            'path' => storage_path('logs/custom2.log'),
+            'level' => 'debug',
+            'days' => 14,
+        ],
+
     ],
 
 ];
