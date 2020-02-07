@@ -49,6 +49,7 @@ class EditTask extends CreateTask
             return $item['label'];
         }, Task::STATUS);
 
+        //配列の要素を 第一引数 文字列で連結します。
         $status_labels = implode('、', $status_labels);
 
         return $messages + [

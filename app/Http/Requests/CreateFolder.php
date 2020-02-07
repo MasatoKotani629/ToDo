@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-//　備考（バリデーション）
+// 備考（バリデーション）
 class CreateFolder extends FormRequest
 {
     /**
