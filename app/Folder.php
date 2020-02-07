@@ -9,7 +9,7 @@ class Folder extends Model
     public function tasks()
     {
 
-        //↓　$this->hasMany('App\Task', 'folder_id', 'id');を省略した形。
+        //↓ $this->hasMany('App\Task', 'folder_id', 'id');を省略した形。
         return $this->hasMany('App\Task');
     }
 }

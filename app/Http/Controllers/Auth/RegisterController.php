@@ -56,12 +56,14 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'gender'   => 'required',
             'age'      => 'required|integer',
+            'position'      => 'required|integer',
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ] , [], [
             'email' => 'メールアドレス',
             'name' => 'ユーザー名',
             'gender' => 'ユーザー名',
             'age' => '年齢',
+            'position'      => 'required|integer',
             'password' => 'パスワード',
         ]);
     }
@@ -80,6 +82,7 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'age' => $data['age'],
             'email' => $data['email'],
+            'position' => $data['position'],
             'password' => Hash::make($data['password']),
         ]);
     }

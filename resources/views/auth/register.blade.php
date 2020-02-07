@@ -37,6 +37,12 @@
                 </div>
               </div>
               <div class="form-group">
+                <label for="position">役職</label>
+                <div class="">
+                    <input id="position" type="position" min="0" class="form-control" name="position" value="{{ old('positon') }}" >
+                </div>
+              </div>
+              <div class="form-group">
                 <label for="password">パスワード</label>
                 <input type="password" class="form-control" id="password" name="password">
               </div>
